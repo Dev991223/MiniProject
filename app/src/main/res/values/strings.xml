@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MiniProject</string>
+    <string name="phone_hint">Phone</string>
+    <string name="phonehint">phone_hint2</string>
+    <string name="invalid_name">Enter Name</string>
+    <string name="invalid_city">Enter City</string>
+    <string name="invalid_blood">Enter Valid Blood Group</string>
+    <string name="invalid_mobile">Enter Valid Mobile Number</string>
+    <string name="invalid_duration">Enter Timer Duration</string>
+    <string name="add_detailsbtntx">Add Details</string>
+    <string name="view_detailstxt">View Details</string>
+    <string name="need_helptitle">Need Help</string>
+    <string name="invalid_Birthday">Enter Birthday</string>
+    <string-array name="Bloodgroup">
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
+</resources>
