@@ -44,7 +44,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Update Details"
+            android:text="@string/update_details"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
             android:textColor="#000000"
@@ -132,7 +132,7 @@
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:id="@+id/up_btn"
-            android:text="Update"
+            android:text="@string/update_btn"
             android:textColor="#ffffff"
             android:textAllCaps="false"
             android:layout_marginTop="25dp"

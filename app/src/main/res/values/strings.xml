@@ -13,6 +13,16 @@
     <string name="invalid_Birthday">Enter Birthday</string>
     <string name="Invalid_blood2">Enter Blood Group</string>
     <string name="Invalid_BloodG">Enter Blood Group</string>
+    <string name="request_blood">Request Blood</string>
+    <string name="confirm">Confirm</string>
+    <string name="request_blood_btn">Request Blood</string>
+    <string name="donate_blood_btn">Donate Blood</string>
+    <string name="confirm_details">Confirm Details</string>
+    <string name="update_btn">Update</string>
+    <string name="delete_btn">Delete</string>
+    <string name="home_btn">Home</string>
+    <string name="update_details">Update Details</string>
+    <string name="update_btn">Update</string>
     <string-array name="Bloodgroup">
         <item>Blood Group</item>
         <item>A+</item>
