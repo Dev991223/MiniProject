@@ -101,6 +101,19 @@
             android:elevation="5dp"
             android:background="@drawable/btndes"/>
 
+
+        <Spinner
+            android:id="@+id/up_blood_group_s"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="BloodGroup"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:inputType="text"
+            android:elevation="5dp"
+            android:background="@drawable/btndes"/>
+
         <EditText
 
             android:id="@+id/up_c_no"
@@ -132,18 +145,6 @@
             android:layout_height="45dp"
             android:id="@+id/up_btn"
             android:text="Update"
-            android:textColor="#ffffff"
-            android:textAllCaps="false"
-            android:layout_marginTop="25dp"
-            android:elevation="5dp"
-            android:background="@drawable/addbtn"
-            android:layout_gravity="center"
-            />
-        <Button
-            android:layout_width="280dp"
-            android:layout_height="45dp"
-            android:id="@+id/ret_btn"
-            android:text="Retrieve"
             android:textColor="#ffffff"
             android:textAllCaps="false"
             android:layout_marginTop="25dp"
