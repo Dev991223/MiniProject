@@ -51,7 +51,7 @@ public class AddReqBlood extends AppCompatActivity implements AdapterView.OnItem
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.add_req_blood);
 
         spinB = (Spinner) findViewById(R.id.spin_blood_group_2);
 
