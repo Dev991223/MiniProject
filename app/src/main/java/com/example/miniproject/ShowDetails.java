@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ShowDetails extends AppCompatActivity {
 
-    TextView tx_name,tx_dob,tx_city,tx_blood,tx_phone,tx_duration;
+    TextView tx_name,tx_dob,tx_city,tx_blood,spinblood,tx_phone,tx_duration;
     ImageView back_img_2;
     Button up_btn,del_btn,home_btn;
     DatabaseReference dbRef;
@@ -43,6 +44,7 @@ public class ShowDetails extends AppCompatActivity {
         String ctxt = intent.getStringExtra(AddReqBlood.City);
         String dotxt = intent.getStringExtra(AddReqBlood.Date_O_Birth);
         String btxt = intent.getStringExtra(AddReqBlood.BloodGro);
+        String bspin = intent.getStringExtra(AddReqBlood.BloodGro2);
         String ptxt = intent.getStringExtra(AddReqBlood.Phone);
         String dtxt = intent.getStringExtra(AddReqBlood.Duration);
 
@@ -50,6 +52,7 @@ public class ShowDetails extends AppCompatActivity {
         tx_city = (TextView) findViewById(R.id.citytx);
         tx_dob = (TextView) findViewById(R.id.dob_tx);
         tx_blood = (TextView) findViewById(R.id.bloodtx);
+        spinblood = (TextView) findViewById(R.id.bloodspin);
         tx_phone = (TextView) findViewById(R.id.phonetx);
         tx_duration = (TextView)findViewById(R.id.durationtx);
 
@@ -57,6 +60,7 @@ public class ShowDetails extends AppCompatActivity {
         tx_city.setText(ctxt);
         tx_dob.setText(dotxt);
         tx_blood.setText(btxt);
+        spinblood.setText(bspin);
         tx_phone.setText(ptxt);
         tx_duration.setText(dtxt);
 
@@ -64,7 +68,7 @@ public class ShowDetails extends AppCompatActivity {
         del_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference del_Ref = FirebaseDatabase.getInstance().getReference().child("RequestBlood");
+                final DatabaseReference del_Ref = FirebaseDatabase.getInstance().getReference().child("RequestBlood");
                 del_Ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

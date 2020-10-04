@@ -81,7 +81,8 @@ public class UpdateDetails extends AppCompatActivity {
         ret_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Donor").child("D1");
+                dbRef = FirebaseDatabase.getInstance().getReference().child("RequestBlood").child("D1");
+                dbRef = FirebaseDatabase.getInstance().getReference().child("RequestBlood").child("D2");
                 dbRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -131,7 +132,7 @@ public class UpdateDetails extends AppCompatActivity {
                     String phone = up_phone.getText().toString();
                     String duration = up_duration.getText().toString();
 
-                    dbRef = FirebaseDatabase.getInstance().getReference().child("Donor");
+                    dbRef = FirebaseDatabase.getInstance().getReference().child("RequestBlood");
 
                     HashMap hashMap = new HashMap();
 
@@ -152,6 +153,8 @@ public class UpdateDetails extends AppCompatActivity {
                         }
 
                     });
+
+
                 }
                 else
 

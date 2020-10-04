@@ -9,10 +9,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
@@ -23,19 +26,21 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
-public class AddReqBlood extends AppCompatActivity {
+public class AddReqBlood extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     public static final String TAG = "AddReqBlood";
     public static final String Name = "com.example.miniproject.example.Name";
     public static final String City = "com.example.miniproject.example.City";
     public static final String Date_O_Birth = "com.example.miniproject.example.Date_O_Birth";
     public static final String BloodGro = "com.example.miniproject.example.BloodGro";
+    public static final String BloodGro2 = "com.example.miniproject.example.BloodGro2";
     public static final String Phone= "com.example.miniproject.example.Phone";
     public static final String Duration = "com.example.miniproject.example.Duration";
 
 
 
     EditText txtname,txtcity,txtblood,txtphone,txtduration,txtdob;
+    Spinner spinB;
     Button addbtn;
     ImageView back_need_help;
     DatabaseReference dbRef;
@@ -49,6 +54,8 @@ public class AddReqBlood extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        spinB = (Spinner) findViewById(R.id.spin_blood_group_2);
+
         back_need_help = (ImageView) findViewById(R.id.backimgview);
 
         back_need_help.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +64,11 @@ public class AddReqBlood extends AppCompatActivity {
                 OpenReqBlood();
             }
         });
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.Bloodgroup,R.layout.support_simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinB.setAdapter(adapter);
+        spinB.setOnItemSelectedListener(this);;
 
         txtname =(EditText) findViewById(R.id.name);
         txtcity =(EditText) findViewById(R.id.city);
@@ -69,12 +81,15 @@ public class AddReqBlood extends AppCompatActivity {
 
         ned = new NeedHelpJ();
 
+
+
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         awesomeValidation.addValidation(this,R.id.name, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
         awesomeValidation.addValidation(this,R.id.city, RegexTemplate.NOT_EMPTY,R.string.invalid_city);
         awesomeValidation.addValidation(this,R.id.date_o_B,RegexTemplate.NOT_EMPTY,R.string.invalid_Birthday);
         awesomeValidation.addValidation(this,R.id.blood_group, RegexTemplate.NOT_EMPTY,R.string.invalid_blood);
+        awesomeValidation.addValidation(this,R.id.spin_blood_group_2,RegexTemplate.NOT_EMPTY,R.string.Invalid_blood2);
         awesomeValidation.addValidation(this,R.id.c_no, "[0-9]{10}$",R.string.invalid_mobile);
         awesomeValidation.addValidation(this,R.id.duration, RegexTemplate.NOT_EMPTY,R.string.invalid_duration);
 
@@ -113,11 +128,13 @@ public class AddReqBlood extends AppCompatActivity {
                     ned.setCity(txtcity.getText().toString().trim());
                     ned.setDob(txtdob.getText().toString().trim());
                     ned.setBlood(txtblood.getText().toString().trim());
+                    ned.setBlood2(spinB.getSelectedItem().toString().trim());
                     ned.setPhone(txtphone.getText().toString().trim());
                     ned.setDuration(txtduration.getText().toString().trim());
                     openShowDetails();
 
                     dbRef.child("D1").setValue(ned);
+
 
                     Toast.makeText(getApplicationContext(),"Data Inserted Successfully",Toast.LENGTH_SHORT).show();
                     clear_controls();
@@ -151,6 +168,9 @@ public class AddReqBlood extends AppCompatActivity {
         EditText blood_t =(EditText)findViewById(R.id.blood_group);
         String blood = blood_t.getText().toString();
 
+        Spinner blood_s = (Spinner)findViewById(R.id.spin_blood_group_2);
+        String blood2 = blood_s.getSelectedItem().toString();
+
         EditText phone_t =(EditText)findViewById(R.id.c_no);
         String phone = phone_t.getText().toString();
 
@@ -163,6 +183,7 @@ public class AddReqBlood extends AppCompatActivity {
         intent.putExtra(City,city);
         intent.putExtra(Date_O_Birth,dob);
         intent.putExtra(BloodGro,blood);
+        intent.putExtra(BloodGro2,blood2);
         intent.putExtra(Phone,phone);
         intent.putExtra(Duration,dur);
         startActivity(intent);
@@ -178,4 +199,14 @@ public class AddReqBlood extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

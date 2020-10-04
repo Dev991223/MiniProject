@@ -103,6 +103,19 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-black"
                 />
+
+            <TextView
+                android:id="@+id/bloodspin"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Blood Group"
+                android:layout_gravity="center"
+                android:drawableRight="@drawable/ic_blood"
+                android:gravity=""
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-black"
+                />
             <TextView
                 android:id="@+id/phonetx"
                 android:layout_width="match_parent"
