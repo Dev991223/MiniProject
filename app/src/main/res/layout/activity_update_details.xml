@@ -89,18 +89,6 @@
             android:elevation="5dp"
             android:background="@drawable/btndes"/>
 
-        <EditText
-            android:id="@+id/up_blood_group"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:hint="BloodGroup"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:inputType="text"
-            android:elevation="5dp"
-            android:background="@drawable/btndes"/>
-
 
         <Spinner
             android:id="@+id/up_blood_group_s"

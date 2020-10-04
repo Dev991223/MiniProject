@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ShowDetails extends AppCompatActivity {
 
-    TextView tx_name,tx_dob,tx_city,tx_blood,spinblood,tx_phone,tx_duration;
+    TextView tx_name,tx_dob,tx_city,spinblood,tx_phone,tx_duration;
     ImageView back_img_2;
     Button up_btn,del_btn,home_btn;
     DatabaseReference dbRef;
@@ -31,6 +31,8 @@ public class ShowDetails extends AppCompatActivity {
         setContentView(R.layout.activity_show_details);
 
         back_img_2 = (ImageView) findViewById(R.id.backimgview2);
+
+        home_btn = findViewById(R.id.homebtn);
 
         back_img_2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +45,6 @@ public class ShowDetails extends AppCompatActivity {
         String ntxt = intent.getStringExtra(AddReqBlood.Name);
         String ctxt = intent.getStringExtra(AddReqBlood.City);
         String dotxt = intent.getStringExtra(AddReqBlood.Date_O_Birth);
-        String btxt = intent.getStringExtra(AddReqBlood.BloodGro);
         String bspin = intent.getStringExtra(AddReqBlood.BloodGro2);
         String ptxt = intent.getStringExtra(AddReqBlood.Phone);
         String dtxt = intent.getStringExtra(AddReqBlood.Duration);
@@ -51,7 +52,6 @@ public class ShowDetails extends AppCompatActivity {
         tx_name = (TextView) findViewById(R.id.nametx);
         tx_city = (TextView) findViewById(R.id.citytx);
         tx_dob = (TextView) findViewById(R.id.dob_tx);
-        tx_blood = (TextView) findViewById(R.id.bloodtx);
         spinblood = (TextView) findViewById(R.id.bloodspin);
         tx_phone = (TextView) findViewById(R.id.phonetx);
         tx_duration = (TextView)findViewById(R.id.durationtx);
@@ -59,10 +59,16 @@ public class ShowDetails extends AppCompatActivity {
         tx_name.setText(ntxt);
         tx_city.setText(ctxt);
         tx_dob.setText(dotxt);
-        tx_blood.setText(btxt);
         spinblood.setText(bspin);
         tx_phone.setText(ptxt);
         tx_duration.setText(dtxt);
+
+        home_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Open_home();
+            }
+        });
 
         del_btn = (Button)findViewById(R.id.dltbtn);
         del_btn.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +115,11 @@ public class ShowDetails extends AppCompatActivity {
                 Open_ReqBlood();
             }
         });
+    }
+
+    private void Open_home() {
+        Intent i3 = new Intent(this,NeedHelp.class);
+        startActivity(i3);
     }
 
     private void Open_ReqBlood() {

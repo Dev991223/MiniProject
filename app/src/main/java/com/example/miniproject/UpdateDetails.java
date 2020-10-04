@@ -49,7 +49,6 @@ public class UpdateDetails extends AppCompatActivity implements AdapterView.OnIt
         up_name  = findViewById(R.id.up_name);
         up_city  = findViewById(R.id.up_city);
         up_dob   = findViewById(R.id.up_dob);
-        up_blood_group = findViewById(R.id.up_blood_group);
         up_spin_blood = findViewById(R.id.up_blood_group_s);
         up_phone = findViewById(R.id.up_c_no);
         up_duration = findViewById(R.id.up_duration);
@@ -95,7 +94,6 @@ public class UpdateDetails extends AppCompatActivity implements AdapterView.OnIt
 
         awesomeValidation.addValidation(this,R.id.name, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
         awesomeValidation.addValidation(this,R.id.city, RegexTemplate.NOT_EMPTY,R.string.invalid_city);
-        awesomeValidation.addValidation(this,R.id.blood_group, RegexTemplate.NOT_EMPTY,R.string.invalid_blood);
         awesomeValidation.addValidation(this,R.id.spin_blood_group_2,RegexTemplate.NOT_EMPTY,R.string.Invalid_BloodG);
         awesomeValidation.addValidation(this,R.id.c_no, "[0-9]{10}$",R.string.invalid_mobile);
         awesomeValidation.addValidation(this,R.id.duration, RegexTemplate.NOT_EMPTY,R.string.invalid_duration);
@@ -110,7 +108,6 @@ public class UpdateDetails extends AppCompatActivity implements AdapterView.OnIt
                     String name = up_name.getText().toString();
                     String city = up_city.getText().toString();
                     String dob = up_dob.getText().toString();
-                    String blood= up_blood_group.getText().toString();
                     String blood2 = up_spin_blood.getSelectedItem().toString();
                     String phone = up_phone.getText().toString();
                     String duration = up_duration.getText().toString();
@@ -122,7 +119,6 @@ public class UpdateDetails extends AppCompatActivity implements AdapterView.OnIt
                     hashMap.put("name",name);
                     hashMap.put("city",city);
                     hashMap.put("dob",dob);
-                    hashMap.put("blood",blood);
                     hashMap.put("blood2",blood2);
                     hashMap.put("phone",phone);
                     hashMap.put("duration",duration);
